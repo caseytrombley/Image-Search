@@ -6,8 +6,6 @@ class ImageList extends Component {
 
     render() {
 
-        console.log(this.props.images);
-
         const images = this.props.images.map(image => {
             return <ImageCard key={image.id} image={image} />
         });

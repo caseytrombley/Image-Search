@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import unsplash from '../api/unsplash';
-
-//comps
 import ImageList from "./ImageList";
 import SearchBar from "./SearchBar";
-
-//keys
-//import unsplash from "../keys/unsplash";
 
 class App extends Component {
 
@@ -16,16 +11,16 @@ class App extends Component {
 
   onSearchSubmit = async (term) => {
     const response = await unsplash.get('/search/photos', {
-        params: { query: term }
-
+        params: {
+            query: term,
+            per_page: 25
+        }
     });
 
     this.setState({
         images: response.data.results
     })
   };
-
-
 
   render() {
     return (
